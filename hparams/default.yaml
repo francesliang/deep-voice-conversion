@@ -25,11 +25,11 @@ default:
     # train
     batch_size: 32
 
-logdir_path: '/data/private/vc/logdir'
+logdir_path: 'logdir'
 
 train1:
     # path
-    data_path: '/data/private/vc/datasets/timit/TIMIT/TRAIN/*/*/*.wav'
+    data_path: 'deep-voice-conversion/datasets/timit/TIMIT/TRAIN/*/*/*.WAV'
 
     # model
     hidden_units: 128  # alias: E
@@ -45,11 +45,11 @@ train1:
     num_epochs: 1000
     steps_per_epoch: 100
     save_per_epoch: 2
-    num_gpu: 2
+    num_gpu: 0
 ---
 train2:
     # path
-    data_path: '/data/private/vc/datasets/arctic/slt/*.wav'
+    data_path: 'deep-voice-conversion/datasets/arctic/slt/*.wav'
 
     # model
     hidden_units: 256  # alias: E
@@ -71,25 +71,25 @@ train2:
     steps_per_epoch: 100
     save_per_epoch: 50
     test_per_epoch: 1
-    num_gpu: 4
+    num_gpu: 0
 ---
 test1:
     # path
-    data_path: '/data/private/vc/datasets/timit/TIMIT/TEST/*/*/*.wav'
+    data_path: 'deep-voice-conversion/datasets/timit/TIMIT/TEST/*/*/*.WAV'
 
     # test
     batch_size: 32
 ---
 test2:
     # path
-    data_path: '/data/private/vc/datasets/arctic/slt/*.wav'
+    data_path: 'deep-voice-conversion/datasets/arctic/slt/*.wav'
 
     # test
     batch_size: 32
 ---
 convert:
     # path
-    data_path: '/data/private/vc/datasets/arctic/bdl/*.wav'
+    data_path: 'deep-voice-conversion/datasets/arctic/bdl/*.wav'
 
     # convert
     one_full_wav: False

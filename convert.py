@@ -42,7 +42,8 @@ from tensorpack.callbacks.base import Callback
 
 
 def convert(predictor, df):
-    pred_spec, y_spec, ppgs = predictor(next(df().get_data()))
+    #pred_spec, y_spec, ppgs = predictor(next(df().get_data()))
+    pred_spec, y_spec, ppgs = predictor(*next(df().get_data()))
 
     # Denormalizatoin
     pred_spec = denormalize_db(pred_spec, hp.default.max_db, hp.default.min_db)
