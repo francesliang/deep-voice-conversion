@@ -19,6 +19,8 @@ class DataFlow(RNGDataFlow):
     def __init__(self, data_path, batch_size):
         self.batch_size = batch_size
         self.wav_files = glob.glob(data_path)
+        print('data-path', data_path)
+        print('wav files number', len(self.wav_files))
 
     def __call__(self, n_prefetch=1000, n_thread=1):
         df = self
@@ -79,7 +81,8 @@ def get_mfccs_and_phones(wav_file, trim=False, random_crop=True):
     num_timesteps = mfccs.shape[0]
 
     # phones (targets)
-    phn_file = wav_file.replace("WAV.wav", "PHN").replace("wav", "PHN")
+    #phn_file = wav_file.replace("WAV.wav", "PHN").replace("wav", "PHN")
+    phn_file = wav_file.replace("WAV", "PHN")
     phn2idx, idx2phn = load_vocab()
     phns = np.zeros(shape=(num_timesteps,))
     bnd_list = []
