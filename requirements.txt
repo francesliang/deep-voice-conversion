@@ -8,3 +8,5 @@ soundfile
 pydub
 tqdm
 git+https://github.com/wookayin/tensorflow-plot.git@master
+
+webrtcvad

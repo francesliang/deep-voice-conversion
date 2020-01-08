@@ -9,6 +9,15 @@ import soundfile as sf
 import numpy as np
 
 
+def convert_to_mono(path):
+    file_name = os.path.basename(path)
+    out_path = "mono-{}".format(file_name)
+    sound = AudioSegment.from_wav(path)
+    sound = sound.set_channels(1)
+    sound.export(out_path, format="wav")
+    return out_path
+
+
 def read_wav(path, sr, duration=None, mono=True):
     wav, _ = librosa.load(path, mono=mono, sr=sr, duration=duration)
     return wav
@@ -79,7 +88,7 @@ def crop_random_wav(wav, length):
 
 def mp3_to_wav(src_path, tar_path):
     """
-    Read mp3 file from source path, convert it to wav and write it to target path. 
+    Read mp3 file from source path, convert it to wav and write it to target path.
     Necessary libraries: ffmpeg, libav.
 
     :param src_path: source mp3 file path
